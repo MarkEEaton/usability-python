@@ -18,7 +18,7 @@ def submit():
     except e:
         print('There\'s been an error')
         print(e)
-    return 'hello world'
+    return render_template('completed.html') 
 
 if __name__ == '__main__':
     app.run(port=8000, host='127.0.0.1', debug=True)
