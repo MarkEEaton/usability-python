@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template
-from openpyxl import load_workbook
 from openpyxl.utils.datetime import datetime_to_W3CDTF
 import cohort
 import re
@@ -16,8 +15,6 @@ def date_to_string():
     date_str = date_str.replace('Z', '')
     return date_str
 
-workbook = load_workbook(filename='/home/b7jl/usability/data.xlsx')
-worksheet = workbook.active
 
 logging.basicConfig(filename='/home/b7jl/usability/debuglog.log',
                     level=logging.DEBUG,
@@ -29,17 +26,11 @@ logging.info('instantiated')
 def submit():
     try:
         logging.info('in the route')
-        prototype = request.args.get('prototype')
-        element = request.args.get('element')
-        logging.debug('type of variable prototype: %s', type(prototype))
-        logging.debug('type of variable element: %s', type(element))
-        if re.compile(r'[^_a-zA-Z]').search(str(element)):
-            return 
-        if re.compile(r'[^0-9]').search(str(prototype)):
-            return
-        else:
-            worksheet.append([date_to_string(), cohort.cohort, prototype, element])
-            workbook.save('/home/b7jl/usability/data.xlsx')
+        prototype = str(request.args.get('prototype'))
+        element = str(request.args.get('element'))
+        data = date_to_string() + ',' + cohort.cohort + ',' + prototype + ',' + element + '\n'
+        with open('./usability/data.txt', 'a') as f:
+            f.write(data)
     except Exception as e:
         logging.warning('threw an exception')
         logging.exception('message')
