@@ -3,6 +3,7 @@ from openpyxl import load_workbook
 from openpyxl.utils.datetime import datetime_to_W3CDTF
 import cohort
 import re
+import logging
 from pytz import timezone
 from datetime import datetime as dt
 
@@ -18,21 +19,30 @@ def date_to_string():
 workbook = load_workbook(filename='/home/b7jl/usability/data.xlsx')
 worksheet = workbook.active
 
+logging.basicConfig(filename='/home/b7jl/usability/debuglog.log',
+                    level=logging.DEBUG,
+                    format='%(asctime)s %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.info('instantiated')
+
 @app.route('/', methods=['GET'])
 def submit():
     try:
+        logging.info('in the route')
         prototype = request.args.get('prototype')
         element = request.args.get('element')
-        if re.compile(r'[^_a-zA-Z]').search(element):
-            return render_template("failed regex on element")
-        if re.compile(r'[^0-9]').search(prototype):
-            return render_template("failed regex on prototype")
+        logging.debug('type of variable prototype: %s', type(prototype))
+        logging.debug('type of variable element: %s', type(element))
+        if re.compile(r'[^_a-zA-Z]').search(str(element)):
+            return 
+        if re.compile(r'[^0-9]').search(str(prototype)):
+            return
         else:
             worksheet.append([date_to_string(), cohort.cohort, prototype, element])
             workbook.save('/home/b7jl/usability/data.xlsx')
     except Exception as e:
-        print('There\'s been an error')
-        print(e)
+        logging.warning('threw an exception')
+        logging.exception('message')
     return render_template('completed.html')
 
 if __name__ == '__main__':
