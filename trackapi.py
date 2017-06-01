@@ -28,8 +28,11 @@ def submit():
         logging.info('in the route')
         prototype = str(request.args.get('prototype'))
         element = str(request.args.get('element'))
-        data = date_to_string() + ',' + cohort.cohort + ',' + prototype + ',' + element + '\n'
-        with open('./usability/data.txt', 'a') as f:
+        data = date_to_string() + ',' + cohort.cohort\
+                                + ',' + prototype\
+                                + ',' + element\
+                                + '\n'
+        with open('./usability/data.csv', 'a') as f:
             f.write(data)
     except Exception as e:
         logging.warning('threw an exception')
