@@ -1,12 +1,12 @@
 from flask import Flask, request, render_template
 from openpyxl.utils.datetime import datetime_to_W3CDTF
 import cohort
-import re
 import logging
 from pytz import timezone
 from datetime import datetime as dt
 
 app = Flask(__name__)
+
 
 def date_to_string():
     eastern = timezone('US/Eastern')
@@ -21,6 +21,7 @@ logging.basicConfig(filename='/home/b7jl/usability/debuglog.log',
                     format='%(asctime)s %(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.info('instantiated')
+
 
 @app.route('/', methods=['GET'])
 def submit():
@@ -38,6 +39,7 @@ def submit():
         logging.warning('threw an exception')
         logging.exception('message')
     return render_template('completed.html')
+
 
 if __name__ == '__main__':
     app.run(port=8000, host='127.0.0.1', debug=True)
