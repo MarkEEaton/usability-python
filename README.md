@@ -6,4 +6,4 @@ Parameters about each usability test, which were hardcoded into the urls of the 
 
 The purpose of this is to aggregate data from many usability tests into one dataset that can be handled by Excel.
 
-This repo is part of a larger project that was presented at SUNYLA 2017 at Stony Brook University. A powerpoint from that presentation is included.
+This repo is part of a larger project that was presented at SUNYLA 2017 at Stony Brook University. A powerpoint from that presentation is included. See also [markeeaton/usability-testing-interface](http://github.com/markeeaton/usability-testing-interface)
