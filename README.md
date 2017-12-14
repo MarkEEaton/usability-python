@@ -8,4 +8,4 @@ The purpose of this is to aggregate data from many usability tests into one data
 
 This repo is part of a larger project that was presented at SUNYLA 2017 at Stony Brook University. A powerpoint from that presentation is included in this repo. Please also take a look at the related repository, [markeeaton/usability-testing-interface](http://github.com/markeeaton/usability-testing-interface). 
 
-This project was also presented at the CUNY IT Conference 2017. The slide deck for that conference will be added soon.
+This project was also presented at the CUNY IT Conference 2017. That slide deck is [also available](https://academicworks.cuny.edu/cgi/viewcontent.cgi?article=1217&context=ny_pubs).
