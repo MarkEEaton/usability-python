@@ -9,3 +9,5 @@ The purpose of this is to aggregate data from many usability tests into one data
 This repo is part of a larger project undertaken with Prof. Carlos Arguelles. Findings were presented at SUNYLA 2017 at Stony Brook University. A powerpoint from that presentation is included in this repo.  Subsequently, this project was also presented at the CUNY IT Conference 2017 ([slide deck](https://academicworks.cuny.edu/cgi/viewcontent.cgi?article=1217&context=ny_pubs)), and ACRL NEC 2018.
 
 Please also take a look at the related repository, [markeeaton/usability-testing-interface](http://github.com/markeeaton/usability-testing-interface).
+
+And an article on this project: https://doi.org/10.1080/02763915.2019.1645552
